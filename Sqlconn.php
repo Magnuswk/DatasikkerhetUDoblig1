@@ -1,7 +1,7 @@
 <?php
 	include('dbconfig.php');
 
-	$db_connect = new mysqli($host, $username, $dbname, $passord);
+	$db_connect = new mysqli($host, $username, $passord, $dbname);
 
     //Print error message if no connection
 	if($db_connect->connect_error) {
