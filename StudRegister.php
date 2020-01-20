@@ -2,12 +2,18 @@
     $conn = mysql_connect("localhost", "root", "", "cybersecg11");
 
     if(isset ($_POST["submit"]))
+    {
       $sql1 = sprintf("INSERT INTO studregister(name, email, password, repeatpassword) VALUES ('%s','%s','%s','%s')", 
       $conn -> real_escape_string($_POST ["name"]),
       $conn -> real_escape_string($_POST ["email"]),
       $conn -> real_escape_string($_POST ["password"]),
       $conn -> real_escape_string($_POST ["repeatpassword"])
       );
+
+    $conn -> query($sql1);
+  }
+
+  
 ?>
 
 <!DOCTYPE html>
