@@ -1,20 +1,37 @@
 <?php
-    $conn = mysql_connect("localhost", "root", "", "cybersecg11");
-
-    if(isset ($_POST["submit"]))
-    {
-      $sql1 = sprintf("INSERT INTO studregister(name, email, password, repeatpassword) VALUES ('%s','%s','%s','%s')", 
-      $conn -> real_escape_string($_POST ["name"]),
-      $conn -> real_escape_string($_POST ["email"]),
-      $conn -> real_escape_string($_POST ["password"]),
-      $conn -> real_escape_string($_POST ["repeatpassword"])
-      );
-
-    $conn -> query($sql1);
-  }
-
   
-?>
+  reguire('Sqlconn.php');
+
+  get_header();
+
+  ?>
+
+  <?php
+    if(isset($_POST['submit'])){
+
+      include('Sqlconn.php');
+
+      $name = $_POST[name];
+      $email = $_POST[email];
+      $studieretning = $_POST[studieretning];
+      $kull = $_POST[kull];
+      $password = $_POST[password];
+
+      $sql = "INSERT INTO cybersecg11.studregister (name, email, studieretning, kull, password) VALUES ('$name', '$email', '$studieretning', '$kull', '$password')";
+
+      if(mysqli_query($db_connect, $sql)){
+
+          echo "div class='registrert'> <h1> Du er nå registrert.</h1></div>";
+        }
+
+          else{"ERROR: could not able to execute $sql." . mysql_error($link);
+        }
+    }
+          //close connection 
+          mysqli_close($link);
+        } else{
+
+  ?>
 
 <!DOCTYPE html>
 <html lang="eng">
@@ -42,7 +59,7 @@
     <hr>
 
     <label class="label-form" for="name"><b>Name</b></label>
-    <input class="input-form" type="text" placeholder="Enter Name" name="Name" required>
+    <input class="input-form" type="text" placeholder="Enter Name" name="name" required>
       <br/>
 
     <label class="label-form" for="email"><b>Email</b></label>
@@ -54,11 +71,11 @@
       <br/>
 
     <label class="label-form" for="kull"><b>Kull</b></label>
-    <input class="input-form" type="text" placeholder="Enter Kull" name="Kull" required>
+    <input class="input-form" type="text" placeholder="Enter Kull" name="kull" required>
       <br/>
 
     <label class="label-form" for="psw"><b>Password</b></label>
-    <input class="input-form" type="password" placeholder="Enter Password" name="psw" required>
+    <input class="input-form" type="password" placeholder="Enter Password" name="password" required>
       <br/>
 
     <label class="label-form" for="psw-repeat"><b>Repeat Password</b></label>
@@ -75,4 +92,7 @@
   </div>
     </form> 
 </body>
+<?php
+    }
+?>
 </html>
