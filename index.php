@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gruppe 11</title>
     <meta name="Nova theme" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="assets/images/assets/images/pepega.png"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -36,8 +40,8 @@
             </a>
             <div class="header-right">
                 <a class="navbar-item" href="#team"></a>
-                <a class="navbar-item" href="StudRegister.html">Registrering Student</a>
-                <a class="navbar-item" href="ForeleserRegister.html">Registrering Foreleser</a>
+                <a class="navbar-item" href="StudRegister.php">Registrering Student</a>
+                <a class="navbar-item" href="ForeleserRegister.php">Registrering Foreleser</a>
             </div>
         </div>
         <!--navigation-->
