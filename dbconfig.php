@@ -1,5 +1,5 @@
 <?php
-	$host = 'localhost:8889';
+	$host = 'localhost';
 	$dbname = 'cybersecg11';
 	$username = 'root';
 	$password = 'root';

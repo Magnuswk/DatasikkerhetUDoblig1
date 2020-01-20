@@ -34,7 +34,7 @@
                 <button class="header-btn"> Log in </button>
             </a>
             <div class="header-right">
-                <a class="navbar-item" href="#team"></a>
+                <a class="navbar-item" href="index.php"> Home </a>
                 <a class="navbar-item" href="StudRegister.php">Registrering Student</a>
                 <a class="navbar-item" href="ForeleserRegister.php">Registrering Foreleser</a>
             </div>

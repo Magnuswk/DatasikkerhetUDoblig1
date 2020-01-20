@@ -1,13 +1,13 @@
 <?php
   
-  reguire('Sqlconn.php');
+  require('Sqlconn.php');
 
   ?>
 
   <?php
     if(isset($_POST['submit'])){
 
-      include('Sqlconn.php');
+      //include('Sqlconn.php');
 
       $name = $_POST[name];
       $email = $_POST[email];
@@ -15,19 +15,18 @@
       $kull = $_POST[kull];
       $password = $_POST[password];
 
-      $sql = "INSERT INTO cybersecg11.studregister (name, email, studieretning, kull, password) VALUES ('$name', '$email', '$studieretning', '$kull', '$password')";
+      $sql = "INSERT INTO studregister (name, email, studieretning, kull, password) VALUES ('$name', '$email', '$studieretning', '$kull', '$password')";
 
-      if(mysqli_query($db_connect, $sql)){
-
-          echo "div class='registrert'> <h1> Du er nå registrert.</h1></div>";
-        }
-
-          else{"ERROR: could not able to execute $sql." . mysql_error($link);
-        }
-    }
-          //close connection 
-          mysqli_close($link);
+  if(mysqli_query($db_connect, $sql)){
+            echo "<div class='registrert'><h1> Du er nå registrert! </h1></div>";
         } else{
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        }
+      
+        // Close connection
+        mysqli_close($link);
+    }else {
+
 
   ?>
 
@@ -63,7 +62,7 @@
                 <button class="header-btn"> Log in </button>
             </a>
             <div class="header-right">
-                <a class="navbar-item" href=""></a>
+                <a class="navbar-item" href="index.php"> Home </a>
                 <a class="navbar-item" href="StudRegister.php">Registrering Student</a>
                 <a class="navbar-item" href="ForeleserRegister.php">Registrering Foreleser</a>
             </div>
@@ -95,7 +94,7 @@
 
 </div><!--hero-background-->
     
-     <form method="post">
+     <form method="POST">
   <div class="container">
     <h1>Register Student</h1>
     <p>Please fill in this form to create an account.</p>
@@ -127,15 +126,15 @@
     <hr>
 
     <p>By creating an account you agree to our <a href="#">Terms & PepegaPrivacy</a>.</p>
-    <button type="submit" class="registerbtn">Register</button>
+    <button name="submit" type="submit" class="registerbtn">Register</button>
   </div>
 
   <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
+    <p>Already have an account? <a href="Login.php">Sign in</a>.</p>
   </div>
     </form> 
-</body>
-<?php
+    <?php
     }
 ?>
+</body>
 </html>
