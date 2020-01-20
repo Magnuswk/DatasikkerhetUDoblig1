@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -30,13 +31,13 @@
     </div>
     <div class="container">
         <div class="header-container header">
-            <a href="#email-form">
+            <a href="Login.html">
                 <button class="header-btn"> Log in </button>
             </a>
             <div class="header-right">
-                <a class="navbar-item" href="#team">The Team</a>
-                <a class="navbar-item" href="#pricing">Registrering Student</a>
-                <a class="navbar-item" href="#features">Registrering Foreleser</a>
+                <a class="navbar-item" href="#team"></a>
+                <a class="navbar-item" href="StudRegister.html">Registrering Student</a>
+                <a class="navbar-item" href="ForeleserRegister.html">Registrering Foreleser</a>
             </div>
         </div>
         <!--navigation-->
@@ -49,7 +50,7 @@
             <div class="hero-right col-sm-6 col-sm-6">
                 <h1 class="header-headline bold"> Student? <br></h1>
                 <h4 class="header-running-text light"> Alle studenter kan registrere seg her slik at dere kan få logget inn og gitt deres tilbakemeldinger!  </h4>
-                <a href="#email-form">
+                <a href="StudRegister.html">
                     <button class="hero-btn"> Registrer Her </button>
                 </a>
             </div><!--hero-left-->
@@ -87,7 +88,7 @@
             <span> Her kan foreleser registrere seg slik at man kan få lagt til sitt emne og få tilbakemeldinger / meldinger om sine emner!  </span>
             </div>
             
-            <a href="#email-form">
+            <a href="ForeleserRegister.html">
                     <button class="hero-btn"> Registrer Her </button>
                 </a>
         </div>
