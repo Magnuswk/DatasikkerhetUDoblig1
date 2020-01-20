@@ -2,8 +2,6 @@
   
   reguire('Sqlconn.php');
 
-  get_header();
-
   ?>
 
   <?php
