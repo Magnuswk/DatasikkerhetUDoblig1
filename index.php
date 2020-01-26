@@ -40,7 +40,7 @@
             </a>
             <div class="header-right">
                 <a class="navbar-item" href="index.php"> Home </a>
-                <a class="navbar-item" href="Emne.php"> Emne </a>
+                <a class="navbar-item" href="/mfw/index.php"> Emner </a>
                 <a class="navbar-item" href="StudRegister.php">Registrering Student</a>
                 <a class="navbar-item" href="ForeleserRegister.php">Registrering Foreleser</a>
             </div>
