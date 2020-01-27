@@ -1,14 +1,18 @@
+<?php 
+include('dbconn.php'); 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<link href="jGrowl/jquery.jgrowl.css" rel="stylesheet" media="screen"/>
 	<script src="js/jquery-1.9.1.min.js"></script>
-	<?php include('dbconn.php'); ?>
+	
 </head>
 
 <body>
-
-	   <form id="login_form"  method="post">
+    <main>
+	   <form id="login_form"  method="POST">
         <h3>Please Login</h3>
         <input type="text"  id="username" name="username" placeholder="Username" required><br><br>
         <input type="password" id="password" name="password" placeholder="Password" required><br><br>
@@ -44,7 +48,7 @@
 			</script>  
 
   
-  
+        
 		</div>
 		</div><!--form-->
 		
@@ -65,7 +69,7 @@
 
 			
 <br>
-</center>
+    </main>
 <?php include('scripts.php');?>
 
 </body>

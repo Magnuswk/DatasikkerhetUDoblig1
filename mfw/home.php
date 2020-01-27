@@ -18,25 +18,25 @@
 			<a href="logout.php"><button><?php 
 				echo $member_row['firstname']." ".$member_row['lastname'];
 			?> - Log Out</button></a>
-			
-		<br>
-		<br>
+    </div>
+		<br/>
+		<br/>
 		
 					<form method="post"> 
 					<textarea name="post_content" rows="7" cols="64" style="text-align:center;" placeholder=".........Write Someting........" required></textarea>
 					<br>
-					<button name="post">&nbsp;POST</button>
+					<button name="POST">&nbsp;POST</button>
 					<br>
 					<hr>
 					</form>
 						<?php	
-							$query = mysql_query("SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from post LEFT JOIN user on user.user_id = post.user_id order by post_id DESC")or die(mysql_error());
-							while($post_row=mysql_fetch_array($query)){
+							$query = mysqli_query("SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from post LEFT JOIN user on user.user_id = post.user_id order by post_id DESC")or die(mysqli_error());
+							while($post_row=mysqli_fetch_array($query)){
 							$id = $post_row['post_id'];	
 							$upid = $post_row['user_id'];	
 							$posted_by = $post_row['firstname']." ".$post_row['lastname'];
 						?>
-					<a style="text-decoration:none; float:right;" href="deletepost.php<?php echo '?id='.$id; ?>"><button><font color="red">x</button></font></a>
+					<a style="text-decoration:none; float:right;" href="deletepost.php<?php echo '?id='.$id; ?>"><button><font color="red">x</font></button></a>
 					<h3>Posted by: <a href="#"> <?php echo $posted_by; ?></a>
 					-
 						<?php				
@@ -57,17 +57,17 @@
 					<br><?php echo $post_row['content']; ?></h3>
 					<form method="post">
 					<hr>
-					Comment:<br>
+					Comment:<br/>
 					<input type="hidden" name="id" value="<?php echo $id; ?>">
-					<textarea name="comment_content" rows="2" cols="44" style="text-align:center;" placeholder=".........Type your comment here........" required></textarea><br>
+					<textarea name="comment_content" rows="2" cols="44" style="text-align:center;" placeholder=".........Type your comment here........" required></textarea><br/>
 					<input type="submit" name="comment">
 					</form>
 						
-					</br>
+					<br/>
 				
 							<?php 
-								$comment_query = mysql_query ("SELECT * ,UNIX_TIMESTAMP() - date_posted AS TimeSpent FROM comment LEFT JOIN user on user.user_id = comment.user_id where post_id = '$id'") or die (mysql_error());
-								while ($comment_row=mysql_fetch_array($comment_query)){
+								$comment_query = mysqli_query ("SELECT * ,UNIX_TIMESTAMP() - date_posted AS TimeSpent FROM comment LEFT JOIN user on user.user_id = comment.user_id where post_id = '$id'") or die (mysqli_error());
+								while ($comment_row=mysqli_fetch_array($comment_query)){
 								$comment_id = $comment_row['comment_id'];
 								$comment_by = $comment_row['firstname']." ".  $comment_row['lastname'];
 							?>
@@ -91,7 +91,7 @@
 							<?php
 							}
 							?>
-					<hr
+					<hr>
 					&nbsp;
 					<?php 
 					if ($u_id = $id){
@@ -109,7 +109,7 @@
 								if (isset($_POST['post'])){
 								$post_content  = $_POST['post_content'];
 								
-								mysql_query("insert into post (content,date_created,user_id) values ('$post_content','".strtotime(date("Y-m-d h:i:sa"))."','$user_id') ")or die(mysql_error());
+								mysqli_query("insert into post (content,date_created,user_id) values ('$post_content','".strtotime(date("Y-m-d h:i:sa"))."','$user_id') ")or die(mysqli_error());
 								header('location:home.php');
 								}
 							?>
@@ -120,7 +120,7 @@
 								$comment_content = $_POST['comment_content'];
 								$post_id=$_POST['id'];
 								
-								mysql_query("insert into comment (content,date_posted,user_id,post_id) values ('$comment_content','".strtotime(date("Y-m-d h:i:sa"))."','$user_id','$post_id')") or die (mysql_error());
+								mysqli_query("insert into comment (content,date_posted,user_id,post_id) values ('$comment_content','".strtotime(date("Y-m-d h:i:sa"))."','$user_id','$post_id')") or die (mysqli_error());
 								header('location:home.php');
 								}
 							?>

@@ -37,7 +37,7 @@
 			</thead>
 			<tbody>
 			<?php 
-			$query = mysql_query("SELECT * FROM user") or die (mysql_error());
+			$query = mysqli_query("SELECT * FROM commentdb.user") or die (mysql_error());
 			while ($row=mysql_fetch_array($query)){
 			$id=$row['user_id'];
 			?>

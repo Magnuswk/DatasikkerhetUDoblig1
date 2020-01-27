@@ -5,8 +5,8 @@ header('location:index.php');
 }
 
 $user_id=$_SESSION['id'];
-$member_query = mysql_query("select * from user where user_id = '$user_id'")or die(mysql_error());
-$member_row = mysql_fetch_array($member_query);
+$member_query = mysqli_query("SELECT * FROM commentdb.user WHERE user_id = '$user_id'")or die(mysqli_error());
+$member_row = mysqli_fetch_array($member_query);
 
 $fullname = $member_row['firstname']." ".$member_row['lastname'];
 ?>

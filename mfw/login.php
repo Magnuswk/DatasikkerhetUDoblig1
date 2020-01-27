@@ -4,9 +4,9 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-		$query = mysql_query("SELECT * FROM user WHERE username='$username' AND password='$password'")or die(mysql_error());
-		$count = mysql_num_rows($query);
-		$row = mysql_fetch_array($query);
+		$query = mysqli_query("SELECT * FROM commentdb.user WHERE username='$username' AND password='$password'")or die(mysqli_error());
+		$count = mysqli_num_rows($query);
+		$row = mysqli_fetch_array($query);
 
 
 		if ($count > 0){
