@@ -17,9 +17,9 @@
 		<label>Username</label>
 		<input type="text" name="username" value="<?php echo $username; ?>">
 	</div>
-	<div class="input-group">
-		<label>Full name</label>
-		<input type="text" name="name">
+    <div class="input-group">
+		<label>Full Name</label>
+		<input type="text" name="fullname" value="<?php echo $fullname; ?>">
 	</div>
 	<div class="input-group">
 		<label>Email</label>
@@ -32,6 +32,14 @@
 	<div class="input-group">
 		<label>Confirm password</label>
 		<input type="password" name="password_2">
+	</div>
+    <div class="input-group">
+		<label>Studieretning</label>
+		<input type="text" name="studieretning" value="<?php echo $studieretning; ?>">
+	</div>
+    <div class="input-group">
+		<label>Kull</label>
+		<input type="number" name="kull" value="<?php echo $kull; ?>">
 	</div>
 	<div class="input-group">
 		<button type="submit" class="btn" name="register_btn">Register</button>

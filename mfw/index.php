@@ -69,7 +69,20 @@ include('dbconn.php');
 
 			
 <br>
-    </main>
+<br>
+
+		<h3>Pepega forelesere registerer seg her!</h3>
+
+			<form method="POST" action="forelesersignup.php" id="signup">
+
+				<input type="text" name="username" Placeholder="Username here.."><br /><br />
+				<input type="text" name="firstName" Placeholder="First name here plz.."><br /><br />
+				<input type="text" name="surName" Placeholder="Last name here plz.."><br /><br />
+				<input type="text" name="emne" Placeholder="Emne here.."><br /><br><br />
+				<input type="password" name="password" Placeholder="Password here mah dude.."><br /><br><br />
+				<input type="submit" name="save" value="Save">
+			</form>
+</main>
 <?php include('scripts.php');?>
 
 </body>

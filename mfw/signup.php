@@ -1,12 +1,13 @@
 	
 			<?php 
 			include('dbconn.php');
-				$username = $_POST['username'];
-				$password = $_POST['password'];
-				$firstname = $_POST ['firstname'];
-				$lastname = $_POST ['lastname'];
+				$name = $_POST['username'];
+				$email = $_POST['password'];
+				$studieretning = $_POST ['firstname'];
+				$kull = $_POST [''];
+				$passord = $_POST ['lastname'];
 				
-				$sql = ("INSERT INTO commentdb.user (username, password, firstname, lastname) VALUES ('$username', '$password', '$firstname', '$lastname')");
+				$sql = ("INSERT INTO commentdb.user (name, email, studieretning, kull, password) VALUES ('$name', '$email', '$studieretning', '$kull', '$passord');");
 
                 if(mysqli_query($db_connect, $sql)){
                     echo "<p> Success! </p>";

@@ -1,10 +1,11 @@
 <?php
-		include('dbconn.php');
+		require "dbconn.php";
 		session_start();
-		$username = $_POST['username'];
+		
+		$name = $_POST['username'];
 		$password = $_POST['password'];
 
-		$query = mysqli_query("SELECT * FROM commentdb.user WHERE username='$username' AND password='$password'")or die(mysqli_error());
+		$query = mysqli_query("SELECT name FROM user WHERE name='$name' AND password='$password';")or die(mysqli_error());
 		$count = mysqli_num_rows($query);
 		$row = mysqli_fetch_array($query);
 
@@ -19,5 +20,4 @@
 		 }else{ 
 		echo 'false';
 		}	
-				
-		?>
+?>

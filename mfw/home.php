@@ -30,11 +30,11 @@
 					<hr>
 					</form>
 						<?php	
-							$query = mysqli_query("SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from post LEFT JOIN user on user.user_id = post.user_id order by post_id DESC")or die(mysqli_error());
+							$query = mysqli_query("SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from post LEFT JOIN user on users.id = post.id order by post_id DESC")or die(mysqli_error());
 							while($post_row=mysqli_fetch_array($query)){
 							$id = $post_row['post_id'];	
-							$upid = $post_row['user_id'];	
-							$posted_by = $post_row['firstname']." ".$post_row['lastname'];
+							$upid = $post_row['id'];	
+							$posted_by = $post_row['username'];
 						?>
 					<a style="text-decoration:none; float:right;" href="deletepost.php<?php echo '?id='.$id; ?>"><button><font color="red">x</font></button></a>
 					<h3>Posted by: <a href="#"> <?php echo $posted_by; ?></a>
@@ -55,7 +55,7 @@
 						?>
 					<br>
 					<br><?php echo $post_row['content']; ?></h3>
-					<form method="post">
+					<form method="POST">
 					<hr>
 					Comment:<br/>
 					<input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -66,10 +66,10 @@
 					<br/>
 				
 							<?php 
-								$comment_query = mysqli_query ("SELECT * ,UNIX_TIMESTAMP() - date_posted AS TimeSpent FROM comment LEFT JOIN user on user.user_id = comment.user_id where post_id = '$id'") or die (mysqli_error());
+								$comment_query = mysqli_query ("SELECT * ,UNIX_TIMESTAMP() - date_posted AS TimeSpent FROM comment LEFT JOIN user on users.id = comment.id where post_id = '$id'") or die (mysqli_error());
 								while ($comment_row=mysqli_fetch_array($comment_query)){
 								$comment_id = $comment_row['comment_id'];
-								$comment_by = $comment_row['firstname']." ".  $comment_row['lastname'];
+								$comment_by = $comment_row['username'];
 							?>
 					<br><a href="#"><?php echo $comment_by; ?></a> - <?php echo $comment_row['content']; ?>
 					<br>
@@ -109,7 +109,7 @@
 								if (isset($_POST['post'])){
 								$post_content  = $_POST['post_content'];
 								
-								mysqli_query("insert into post (content,date_created,user_id) values ('$post_content','".strtotime(date("Y-m-d h:i:sa"))."','$user_id') ")or die(mysqli_error());
+								mysqli_query("INSERT INTO post (content, date_created, id) VALUES ('$post_content','".strtotime(date("Y-m-d h:i:sa"))."','$id') ")or die(mysqli_error());
 								header('location:home.php');
 								}
 							?>
@@ -120,7 +120,7 @@
 								$comment_content = $_POST['comment_content'];
 								$post_id=$_POST['id'];
 								
-								mysqli_query("insert into comment (content,date_posted,user_id,post_id) values ('$comment_content','".strtotime(date("Y-m-d h:i:sa"))."','$user_id','$post_id')") or die (mysqli_error());
+								mysqli_query("INSERT INTO comment (content, date_posted, id, post_id) VALUES ('$comment_content','".strtotime(date("Y-m-d h:i:sa"))."','$id','$post_id')") or die (mysqli_error());
 								header('location:home.php');
 								}
 							?>
