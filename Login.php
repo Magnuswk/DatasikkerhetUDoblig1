@@ -24,11 +24,17 @@
 		<div class="input-group">
 			<button type="submit" class="btn" name="login_btn">Login</button>
 		</div>
+				<br/>
 		<p>
-			Not yet a member? <a href="register.php">Sign up</a>
-			Foreleser? <a href="foreleserregister.php">Sign up</a>
+			Not a registered student? <a href="register.php">Sign up</a>
+			<br/>
+			Lecturer? <a href="foreleserregister.php">Sign up</a>
+			<br/>
+			
 
 		</p>
 	</form>
+
+	<div></div>
 </body>
 </html>

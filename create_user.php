@@ -1,5 +1,4 @@
 <?php include('functions.php') ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,58 +61,123 @@
 		<center>
 		Welcome:
 		<?php 
-		 echo $member_row['username']." ".$member_row['fullname'];
+		 echo $member_row['firstname']." ".$member_row['lastname'];
 		?>
 		(admin)
 		</center>
 		<br>
 		<br>
 		<center>
-            <table>
-                <tr>
-                <th>Id</th>
-                <th>Username</th>
-                <th>email</th>
-                <th>user type</th>
-                <th>studieretning</th>
-                <th>kull</th>
-                <th>full name</th>
-                </tr>
-                
-                <?php
-                $conn = mysqli_connect("localhost", "root", "Cyber&sec&g11", "multi_login");
-                // Check connection
-                if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-                }
-                
-                $sql = "SELECT id, username, email, user_type, studieretning, kull, fullname FROM users";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . $row["id"]. "</td><td>" . $row["username"] . "</td><td>" . $row["email"] . "</td><td>" . $row["user_type"] . "</td><td>" . $row["studieretning"] . "</td><td>" . $row["kull"] . "</td><td>" . $row["fullname"] . "</td><tr>";
-                }
-                    echo "</table>";
-                    
-                } else { echo "0 results"; }
-                $conn->close();
-                ?>
-                
-              </table>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>User ID</th>
+					<th>Username</th>
+					<th>Password</th>
+					<th>Firstname</th>
+					<th>Lastname</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php 
+			$query = mysqli_query("SELECT * FROM commentdb.user") or die (mysql_error());
+			while ($row=mysql_fetch_array($query)){
+			$id=$row['user_id'];
+			?>
+			
+				<tr>
+					<td><?php echo $row['user_id'];?></td>
+					<td><?php echo $row['username']; ?></td>
+					<td><?php echo $row['password']; ?></td>
+					<td><?php echo $row['firstname']; ?></td>
+					<td><?php echo $row['lastname']; ?></td>
+					<td><a href="edit_user.php?id=<?php echo $id; ?>">Edit</a> &nbsp;
+					<script type="text/javascript">
+						function confirmDelete(delUrl){
+						if (confirm("Are you sure you want to delete")) {
+							document.location = delUrl;
+							}
+							
+						}
+					</script>
+					<a href="delete.php?id=<?php echo $id; ?>" onclick="return confirm('Are you sure you want to delete?')"><font color="red">Delete</font></a></td>
+				</tr>
+							<?php }
+			?>
+			</tbody>
+		</table>
 		</center>
 		
 		<br><br>
 		<br><br>
 		<br><br>
-	   
+	
 		
 		
 		<hr>
 			<br>
 			<br>
-
+                <div>
+				<center>
+					<form method="post" action="post.php"> 
+					<textarea name="content" rows="7" cols="64" style="text-align:center;" placeholder=".........Write Someting........" required></textarea>
+					<br>
+					<button name="post">&nbsp;POST</button>
+					<br>
+					<hr>
+					</form>
+					
+					<?php
+					
+					$query = mysql_query("SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from post  order by post_id DESC")or die(mysql_error());
+					while($row=mysql_fetch_array($query)){
+					$post_id = $row['post_id'];	
+					?>
+					<!--<div class="post">-->
+					<p><?php echo $row['content']; ?></p>
+					<?php
+					
+			$days = floor($row['TimeSpent'] / (60 * 60 * 24));
+			$remainder = $row['TimeSpent'] % (60 * 60 * 24);
+			$hours = floor($remainder / (60 * 60));
+			$remainder = $remainder % (60 * 60);
+			$minutes = floor($remainder / 60);
+			$seconds = $remainder % 60;
+			if($days > 0)
+			echo date('F d, Y - H:i:sa', $row['date_created']);
+			elseif($days == 0 && $hours == 0 && $minutes == 0)
+			echo "Just now";		
+			elseif($days == 0 && $hours == 0)
+			echo $minutes.' minutes ago';
+					
+					?>
+					<?php 
+					$member_query = mysql_query("select * from user where user_id = '$user_id'")or die(mysql_error());
+					$member_row = mysql_fetch_array($member_query);
+					?>
+					<br>
+				
+					Posted by:<span class="myname"><?php echo $member_row['firstname']."  ".$member_row['lastname']; ?></span>
+					&nbsp;&nbsp;
+					</br><hr>
+						<a href="deletepost.php<?php echo '?id='.$post_id; ?>">&nbsp;remove</a>
+					</br>
+					&nbsp;
+					<?php 
+					if ($id == $post_id){
+					?>
+					
+				
+					
+					<?php }else{
+					
+					}?>
+					<!--</div>-->
+					<?php } ?>
+					
+					
+				</center>
 					
 					
 	</div><!--container-->
