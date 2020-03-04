@@ -1,22 +1,22 @@
 <?php 
-include('functions.php');
+include('../functions.php');
 
 if (!isAdmin()) {
 	$_SESSION['msg'] = "You must log in first";
-	header('location: home.php');
+	header('location: index.php');
 }
 
 if (isset($_GET['logout'])) {
 	session_destroy();
 	unset($_SESSION['user']);
-	header("location: login.php");
+	header("location: ../login.php");
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="../style.css">
 	<style>
 	.header {
 		background: #003366;
@@ -27,6 +27,13 @@ if (isset($_GET['logout'])) {
 	</style>
 </head>
 <body>
+<nav>
+		<ul>
+			<li><a href="/index.php">Home</a></li>
+			<li><a href="/login.php">Login</a></li>
+			<li><a href="/subject.php">Subject</a></li>
+		</ul>
+	</nav>
 	<div class="header">
 		<h2>Admin - Home Page</h2>
 	</div>
@@ -54,7 +61,7 @@ if (isset($_GET['logout'])) {
 					<small>
 						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
 						<br>
-						<a href="home.php?logout='1'" style="color: red;">logout</a>
+						<a href="../index.php?logout='1'" style="color: red;">logout</a>
                        &nbsp; <a href="create_user.php"> + add user</a>
 					</small>
 

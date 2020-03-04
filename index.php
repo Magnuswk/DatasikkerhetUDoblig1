@@ -12,6 +12,13 @@ if (!isLoggedIn()) {
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<nav>	
+		<ul>
+			<li><a href="/index.php">Home</a></li>
+			<li><a href="/login.php">Login</a></li>
+			<li><a href="/subject.php">Subject</a></li>
+		</ul>
+	</nav>
 	<div class="header">
 		<h2>Home Page</h2>
 	</div>
@@ -29,7 +36,7 @@ if (!isLoggedIn()) {
 		<?php endif ?>
 		<!-- logged in user information -->
 		<div class="profile_info">
-			<img src="images/user_profile.png"  >
+			<img src="assets/images/user_profile_default.jpg"  >
 
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>
@@ -45,5 +52,11 @@ if (!isLoggedIn()) {
 			</div>
 		</div>
 	</div>
+					<main>
+						<div class="imgwrapper_center"> <img class="main_imgcenter" src="assets/images/hackerman.jpg" > </div>
+
+					</main>
+
+						<footer> All rights reserved Grp 11 - 2020 </footer>
 </body>
 </html>

@@ -1,9 +1,9 @@
-<?php include('functions.php') ?>
+<?php include('../functions.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Registration system PHP and MySQL - Create user</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="../style.css">
 	<style>
 		.header {
 			background: #003366;
@@ -16,6 +16,18 @@
 <body>
 	<div class="header">
 		<h2>Admin - create user</h2>
+		<div>
+				<?php  if (isset($_SESSION['user'])) : ?>
+					<strong><?php echo $_SESSION['user']['username']; ?></strong>
+
+					<small>
+						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
+						<br>
+						<a href="../index.php?logout='1'" style="color: red;">logout</a>
+					</small>
+
+				<?php endif ?>
+			</div>
 	</div>
 	
 	<form method="post" action="create_user.php">
@@ -25,6 +37,10 @@
 		<div class="input-group">
 			<label>Username</label>
 			<input type="text" name="username" value="<?php echo $username; ?>">
+		</div>
+		<div class="input-group">
+			<label>Full Name</label>
+			<input type="text" name="fullname" value="<?php echo $fullname; ?>">
 		</div>
 		<div class="input-group">
 			<label>Email</label>
@@ -45,6 +61,15 @@
 		<div class="input-group">
 			<label>Confirm password</label>
 			<input type="password" name="password_2">
+		</div>
+		</div>
+    	<div class="input-group">
+			<label>Studieretning</label>
+			<input type="text" name="studieretning" value="<?php echo $studieretning; ?>">
+		</div>
+    	<div class="input-group">
+			<label>Kull</label>
+			<input type="number" name="kull" value="<?php echo $kull; ?>">
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="register_btn"> + Create user</button>
