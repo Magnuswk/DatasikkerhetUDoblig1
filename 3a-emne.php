@@ -4,8 +4,8 @@
     <title>
       Comments Example Page
     </title>
-    <script src="3b-comments.js"></script>
-    <link href="3c-comments.css" rel="stylesheet">
+    <script src="assets/js/3b-comments.js"></script>
+    <link href="assets/css/3c-comments.css" rel="stylesheet">
   </head>
   <body>
     <p>Hello world! This is a comments demo.</p>

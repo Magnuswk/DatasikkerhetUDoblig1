@@ -1,0 +1,19 @@
+Dokumentasjonssiden til gruppe 11, Datasikkerhet i utvikling og drift
+
+Gruppe 11 har utviklet både en nettside og en app, for dette prosjektet. For å bli ferdig i tide har gruppa valgt å 
+fordele oppgaver slik at to stykk på gruppa hadde hovedansvaret for å utvikle appen. De tre andre hadde fokus på å utvikle nettsiden. 
+Siden det var knapt med tid, ble det valgt løsninger som gruppa nødvendigvis ikke står inne for, men det har vært nødvendig for å bli ferdig til fristen. 
+
+Gruppen har lagd en nettside, med en registreringsfunksjon, login-funksjon, emner og meldingsystem. På nettsiden kan man også velge mellom å registrere seg som bruker eller, foreleser. 
+Nettsiden er laget med en blanding av copy-paste, php, html, java, Jquery og god gammeldags polsk snekkring. 
+
+Appen er lagd i java og har de samme funskjonene som nettsiden. 
+
+Det er også satt opp en database i phpmyadmin, dette er for å lagre informasjon om brukere, og hvilke brukere som sender hvilke meldinger. Det er satt opp flere databaser som er uavhenige av hverandre.
+Hvis en kverulerer så går ikke hele systemet ned (tror vi).
+
+Koden har stort sett blitt gjort i VS Code, og databasen følger InnoDB.
+
+Alt kjører på apache2, med et lite dryss sigøyner magi. 
+
+Eller så er det ikke så mye å si uten å avsløre tekniske løsninger som kan avsløre sikkerhetshull (som vi garantert har uansett).
