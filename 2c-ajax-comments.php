@@ -49,5 +49,17 @@ switch ($_POST['req']) {
   case "add":
     echo $pdo->add($_POST['post_id'], $_POST['name'], $_POST['message'], $_POST['reply_id']) ? "OK" : "ERR";
     break;
+
+    case "reply":
+      if ($_SESSION['user']) {
+        // Show docket
+      }
+      break;
+    
+    case "add":
+      if ($_SESSION['user']) {
+        echo $pdo->add($_POST['post_id'], $_POST['name'], $_POST['message'], $_POST['reply_id']) ? "OK" : "ERR";
+      } else { echo "ERR"; }
+      break;
 }
 ?>
