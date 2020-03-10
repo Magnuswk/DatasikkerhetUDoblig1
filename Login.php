@@ -8,11 +8,11 @@
 <body>
 	<div class="topnav">
   		<a class="active" href="/index.php">Home</a>
-  		<a href="/3a-emne.php">Subjects</a>
+  		<!-- <a href="/3a-emne.php">Subjects</a> -->
   		<a href="">PLACEHOLDER</a>
   			<div class="topnav-right">
     			<a href="/login.php">Log in</a>
-    			<a href="index.php?logout='1'">Log out</a>
+    			<!-- <a href="index.php?logout='1'">Log out</a> -->
   			</div>
 	</div>
 
@@ -53,6 +53,10 @@
 
 		</p>
 	</form>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 
 	<div></div>
 </body>
