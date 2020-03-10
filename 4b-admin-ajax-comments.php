@@ -1,13 +1,16 @@
 <?php
-/* [INIT] */
-session_start();
+include('../functions.php');
 
-/* PROTECT THE ADMIN FUNCTIONS!
-// E.G. CHECK IF ADMIN IS SIGNED IN
-if (!isset($_SESSION['admin'])) {
-  die("ERR");
+if (!isAdmin()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: index.php');
 }
-*/
+
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['user']);
+	header("location: ../login.php");
+
 
 // LIBRARIES
 require __DIR__ . DIRECTORY_SEPARATOR . "lib" . DIRECTORY_SEPARATOR . "2a-config.php";

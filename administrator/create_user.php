@@ -156,7 +156,29 @@ if (isset($_GET['logout'])) {
 			?>
 			</tbody>
 		</table>
-		
+	<div>
+	<h3>EDIT COMMENT</h3>
+    <form method="post" target="_blank" action="4b-admin-ajax-comments.php">
+      Request - <input type="text" name="req" value="edit" readonly/>
+      <br>
+      Comment ID - <input type="number" name="comment_id" required/>
+      <br>
+      Name - <input type="text" name="name" required/>
+      <br>
+      Message - <input type="text" name="message" required/>
+      <br>
+      <input type="submit" value="Go"/>
+    </form>
+ 
+    <h3>DELETE COMMENT</h3>
+    <form method="post" target="_blank" action="4b-admin-ajax-comments.php">
+      Request - <input type="text" name="req" value="del" readonly/>
+      <br>
+      Comment ID - <input type="number" name="comment_id" required/>
+      <br>
+      <input type="submit" value="Go"/>
+    </form>
+	</div>
 
 </body>
 </html>
