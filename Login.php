@@ -6,13 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<nav>
-		<ul>
-			<li><a href="/index.php">Home</a></li>
-			<li><a href="/login.php">Login</a></li>
-			<!-- <li><a href="/subject.php">Subject</a></li> 	Re-enable after login-->
-		</ul>
-	</nav>
+	<div class="topnav">
+  		<a class="active" href="/index.php">Home</a>
+  		<a href="/3a-emne.php">Subjects</a>
+  		<a href="">PLACEHOLDER</a>
+  			<div class="topnav-right">
+    			<a href="/login.php">Log in</a>
+    			<a href="index.php?logout='1'">Log out</a>
+  			</div>
+	</div>
+
 
 	<div class="midpicbox">
 		<img class="midpic" src="assets/images/cybersecc.png" alt="pixel art for cybersecurity">

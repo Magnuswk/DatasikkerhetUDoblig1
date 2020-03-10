@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+
 * { margin: 0px; padding: 0px; }
 body {
 	font-size: 120%;
 	background: #F8F8FF;
+	font-family: 'Montserrat', sans-serif;
 }
 .header {
 	width: 40%;
@@ -76,7 +79,7 @@ form, .content {
 	width: 50px; 
 	height: 50px; 
 	margin: 5px;
-	float: left;
+	
 }
 .profile_info div {
 	display: inline-block; 
@@ -103,33 +106,41 @@ form, .content {
 }
 
 /* NAV BAR */
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #333;
 	overflow: hidden;
-	background-color: #333;
-	position: fixed;
-	top: 0;
-	width: 100%;
-  }
-  
-  li {
-	float: left;
-  }
-  
-  li a {
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-  }
-  
-  /* Change the link color to #111 (black) on hover */
-  li a:hover {
-	background-color: #111;
-  }
+	max-width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #5F9EA0;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #5F9EA0;
+  color: white;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
 
   .imgwrapper_center {
 	display: block;
@@ -154,3 +165,38 @@ footer {
 	color: white;
 	overflow: hidden;
 }
+
+/* BUTTONS - COPY PASTA USING THE CLASSES ASIGNED */
+
+/*Log out button */ 
+.logoutbtn {
+	box-shadow: 3px 4px 0px 0px #899599;
+	background:linear-gradient(to bottom, #942626 5%, #ff0505 100%);
+	background-color:#942626;
+	border-radius:29px;
+	border:1px solid #d6bcd6;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:21px;
+	font-weight:bold;
+	padding:11px 25px;
+	text-decoration:none;
+}
+.logoutbtn:hover {
+	background:linear-gradient(to bottom, #ff0505 5%, #942626 100%);
+	background-color:#ff0505;
+}
+.logoutbtn:active {
+	position:relative;
+	top:1px;
+}
+
+/* Subject Button */
+/* Register Button */
+/* Lecture Register Button */
+/* Guest Log in button */
+/* Home button */
+/* Admin Button */
+       

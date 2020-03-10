@@ -1,15 +1,31 @@
+<?php
+include('functions.php');
+if (!isLoggedIn()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: login.php');
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <title>
-      Comments Example Page
+      Subject
     </title>
     <script src="assets/js/3b-comments.js"></script>
     <link href="assets/css/3c-comments.css" rel="stylesheet">
   </head>
   <body>
-    <p>Hello world! This is a comments demo.</p>
-    <p>This should be your blog post, product page, or whichever that you want to add comments.</p>
+  <div class="topnav">
+  		<a class="active" href="/index.php">Home</a>
+  		<a href="/3a-emne.php">Subjects</a>
+  		<a href="">PLACEHOLDER</a>
+  			<div class="topnav-right">
+    			<a href="/login.php">Log in</a>
+    			<a href="index.php?logout='1'">Log out</a>
+  			</div>
+		</div>
+    <p>FILL WITH INFO</p>
+    <p>FILL WITH INFO</p>
 
     <!-- GIVE YOUR PAGE OR PRODUCT A POST ID -->
     <input type="hidden" id="post_id" value="999"/>

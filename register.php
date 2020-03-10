@@ -7,6 +7,16 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<div class="topnav">
+  		<a class="active" href="/index.php">Home</a>
+  		<a href="/3a-emne.php">Subjects</a>
+  		<a href="">PLACEHOLDER</a>
+  			<div class="topnav-right">
+    			<a href="/login.php">Log in</a>
+    			<a href="index.php?logout='1'">Log out</a>
+  			</div>
+	</div>
+
 <div class="header">
 	<h2>Student register</h2>
 </div>

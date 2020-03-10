@@ -1,4 +1,17 @@
-<?php include('../functions.php') ?>
+<?php 
+include('../functions.php');
+
+if (!isAdmin()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: index.php');
+}
+
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['user']);
+	header("location: ../login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +27,16 @@
 	</style>
 </head>
 <body>
+	<div class="topnav">
+  		<a class="active" href="/index.php">Home</a>
+  		<a href="/3a-emne.php">Subjects</a>
+  		<a href="">PLACEHOLDER</a>
+  			<div class="topnav-right">
+    			<a href="/login.php">Log in</a>
+    			<a href="index.php?logout='1'">Log out</a>
+  			</div>
+	</div>
+
 	<div class="header">
 		<h2>Admin - create user</h2>
 		<div>
