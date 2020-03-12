@@ -108,7 +108,7 @@ class Comments {
   // get() : get all comments for the given post
   // PARAM $pid : post ID
  
-    $sql = "SELECT * FROM `comments` WHERE `post_id`=? ORDER BY `reply_id`";
+    $sql = "SELECT * FROM `comments` WHERE `post_id`=?  AND `approved`=? ORDER BY `reply_id`";
     $this->stmt = $this->pdo->prepare($sql);
     $this->stmt->execute([$pid]);
     $comments = [];
@@ -173,5 +173,10 @@ class Comments {
     $this->end($pass);
     return $pass;
   }
+
+  function approve($cid){
+    $sql = "UPDATE `comments` SET `approved`=1 WHERE `comment_id`=?;";
+    return $this->exec($sql, [$cid]);
+ }
 }
 ?>

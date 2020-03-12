@@ -61,5 +61,10 @@ switch ($_POST['req']) {
         echo $pdo->add($_POST['post_id'], $_POST['name'], $_POST['message'], $_POST['reply_id']) ? "OK" : "ERR";
       } else { echo "ERR"; }
       break;
+
+    /* [APPROVE COMMENT] */
+  case "approve":
+    echo $pdo->approve($_POST['post_id']) ? "OK" : "ERR";
+    break;
 }
 ?>
